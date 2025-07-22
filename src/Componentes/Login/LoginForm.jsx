@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Input from '../Forms/input';
+import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
 import { UserContext } from '../../UserContext';
@@ -11,6 +11,7 @@ import stylesBtn from '../Forms/Button.module.css';
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
+  // const email = useForm();
 
   const { userLogin, error, loading } = React.useContext(UserContext);
 
@@ -27,7 +28,9 @@ const LoginForm = () => {
       <h1 className="title">Login</h1>
       <form className={styles.form} onSubmit={handleSubmit}>
         <Input label="Usuario" type="text" name="username" {...username} />
+        {/* <Input label="Email" type="email" name="email" {...email} /> */}
         <Input label="Senha" type="password" name="password" {...password} />
+
         {loading ? (
           <Button disable>Carregando...</Button>
         ) : (
